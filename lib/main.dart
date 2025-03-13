@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:video_sharing_platform/User/homescreen.dart';
+import 'package:video_sharing_platform/User/homescreen.dart'; // Import HomeScreen
 import 'package:video_sharing_platform/User/videos/uploaded_videos.dart';
 import 'package:video_sharing_platform/User/videos/category.dart';
 import 'package:video_sharing_platform/User/subscriptions&payements/subscription.dart';
@@ -8,7 +8,6 @@ import 'package:video_sharing_platform/User/Monetization/monetization.dart';
 import 'package:video_sharing_platform/User/Search/search.dart';
 import 'package:video_sharing_platform/User/video_controls/video_controls.dart';
 import 'package:video_sharing_platform/User/Side Bar/sidebar.dart';
-import 'package:video_sharing_platform/User/Nav bar/navbar.dart';
 import 'package:video_sharing_platform/Admin/Manage Users/manage_users.dart';
 import 'package:video_sharing_platform/Admin/Manage Videos/manage_videos.dart';
 import 'package:video_sharing_platform/Admin/Handle Payments/handle_payments.dart';
@@ -39,8 +38,7 @@ class MyApp extends StatelessWidget {
         '/monetization': (context) => MonetizationScreen(), // Monetization Settings
         '/search': (context) => SearchScreen(), // Search Videos
         '/videoControls': (context) => VideoControlsScreen(), // Video Controls
-        '/navbar': (context) => Navbar(), // Video Controls
-        '/sidebar': (context) => Sidebar(), // Video Controls
+        '/sidebar': (context) => Sidebar(), // Sidebar Screen
 
         // Admin Routes
         '/manageUsers': (context) => ManageUsersScreen(), // Manage Users
