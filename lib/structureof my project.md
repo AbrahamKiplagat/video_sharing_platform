@@ -282,3 +282,6 @@
 - **Lock Screen**: Locks controls while playing.
 
 This structure ensures efficient management of users, payments, videos, and admin functionalities. Let me know if you need modifications! 🚀
+1. Razopay payement method for the project
+2. Implement the youtube api for the project.
+
