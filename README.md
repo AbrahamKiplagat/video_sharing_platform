@@ -1,16 +1,87 @@
-# video_sharing_platform
+# 📹 Video Sharing Platform (Flutter)
 
-A new Flutter project.
+A **feature-rich video sharing application** built with Flutter, supporting both **regular video uploads** and **live streaming** with real-time chat.
 
-## Getting Started
+## 🌟 Features
 
-This project is a starting point for a Flutter application.
+### 🎥 Video Features
+- **Upload, view, and manage videos**
+- Responsive video grid layout (1-4 columns based on screen size)
+- Video player with fullscreen mode
+- Categories & trending sections
+- Search functionality
 
-A few resources to get you started if this is your first Flutter project:
+### 🔴 Live Streaming
+- **RTMP & HLS live stream support**
+- Real-time chat during streams
+- Stream health monitoring
+- Adaptive bitrate streaming
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 👤 User Features
+- User profiles
+- Subscriptions & monetization
+- Playlists & watch history
+- Like/comment/share videos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🛠 Admin Panel
+- Manage users & videos
+- Handle payments & reports
+- Platform moderation tools
+- Analytics dashboard
+
+## 🗄️ Database ERD Diagram
+
+```mermaid
+erDiagram
+    USER ||--o{ VIDEO : uploads
+    USER ||--o{ COMMENT : writes
+    USER ||--o{ SUBSCRIPTION : has
+    USER ||--o{ PLAYLIST : creates
+    VIDEO ||--o{ COMMENT : has
+    VIDEO ||--o{ CATEGORY : belongs_to
+    VIDEO ||--o{ LIKE : receives
+    PLAYLIST ||--o{ VIDEO_ITEM : contains
+    LIVE_STREAM ||--o{ CHAT_MESSAGE : has
+
+    USER {
+        string id PK
+        string username
+        string email
+        string avatar_url
+        datetime created_at
+    }
+    
+    VIDEO {
+        string id PK
+        string user_id FK
+        string title
+        string description
+        string video_url
+        string thumbnail_url
+        integer views
+        datetime created_at
+    }
+    
+    COMMENT {
+        string id PK
+        string user_id FK
+        string video_id FK
+        string content
+        datetime created_at
+    }
+    
+    PLAYLIST {
+        string id PK
+        string user_id FK
+        string name
+        string description
+    }
+    
+    LIVE_STREAM {
+        string id PK
+        string user_id FK
+        string stream_url
+        string title
+        integer viewer_count
+        boolean is_live
+    }
