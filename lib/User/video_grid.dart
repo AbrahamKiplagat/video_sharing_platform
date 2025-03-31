@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'video_view_screen.dart';
 
 class VideoGrid extends StatelessWidget {
   final List<Map<String, dynamic>> videos;
@@ -69,6 +70,18 @@ class VideoCard extends StatelessWidget {
         onTap: () {
           // Add navigation to video detail page
           // Navigator.push(context, MaterialPageRoute(builder: (context) => VideoDetailPage(video: video)));
+          Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => VideoViewScreen(
+      videoUrl: 'your_video_url',
+      videoTitle: 'Video Title',
+      creator: 'Creator Name',
+      views: 1000,
+      uploadDate: '1 week ago',
+    ),
+  ),
+);
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
